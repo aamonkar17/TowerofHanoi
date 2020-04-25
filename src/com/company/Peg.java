@@ -34,7 +34,7 @@ public class Peg {
     {
         if (discs[0]==0) {
             discs[0] = whichOne;
-            count++;
+            return true;
         }
         // TODO add the disc with the given number to the peg.
         // don't forget to make sure the move is value (no disc on top of a smaller one)
@@ -42,7 +42,8 @@ public class Peg {
             if(discs[i]==0) {
                 if (whichOne > discs[i - 1]) {
                     return false;
-                } else if (whichOne < discs[i - 1]) {
+                }
+                else if (whichOne < discs[i - 1]) {
                     discs[i] = whichOne;
                     count++;
                     return true;
@@ -56,7 +57,7 @@ public class Peg {
     {
         // TODO remove the top disc from the peg.  Return its value.
         for(int i=0; i<discs.length; i++){
-            if (i==discs.length || discs[i]!=0 && discs[i+1]==0){
+            if (i==discs.length-1 || discs[i]!=0 && discs[i+1]==0){
                 int a = discs[i];
                 discs[i]=0;
                 count--;
